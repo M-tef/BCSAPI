@@ -17,3 +17,7 @@ Then to update app.json connection string update the app.json as
 
 Then run the following;
 Scaffold-DbContext -Connection Name=BCSconn Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -F
+
+
+also run the following to update the project if there was any database DDL operations;
+Scaffold-DbContext -Connection Name=BCSconn Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -F
