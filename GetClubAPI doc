@@ -1,0 +1,19 @@
+First install the following;
+
+Install-Package Microsoft.EntityFrameworkCore
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+Install-Package Microsoft.EntityFrameworkCore.Design
+
+
+Then run;
+
+Scaffold-DbContext "Server=bookclubsystem.database.windows.net;Database=BCS;Trusted_Connection=false;Encrypt=True;User ID=bcs;Password=password1!; Integrated Security=false;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -F
+
+Then to update app.json connection string update the app.json as
+
+,"ConnectionStrings": {
+    "BCSconn":"Server=bookclubsystem.database.windows.net;Database=BCS;Trusted_Connection=false;Encrypt=True;User ID=bcs;Password=password1!; Integrated Security=false;"
+  }
+
+Then run the following;
+Scaffold-DbContext -Connection Name=BCSconn Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -F
