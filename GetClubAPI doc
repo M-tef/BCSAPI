@@ -12,7 +12,7 @@ Scaffold-DbContext "Server=bookclubsystem.database.windows.net;Database=BCS;Trus
 Then to update app.json connection string update the app.json as
 
 ,"ConnectionStrings": {
-    "BCSconn":"Server=bookclubsystem.database.windows.net;Database=BCS;Trusted_Connection=false;Encrypt=True;User ID=bcs;Password=password1!; Integrated Security=false;"
+    "TMSconn":"Server=bookclubsystem.database.windows.net;Database=BCS;Trusted_Connection=false;Encrypt=True;User ID=bcs;Password=password1!; Integrated Security=false;"
   }
 
 Then run the following;
@@ -21,3 +21,6 @@ Scaffold-DbContext -Connection Name=BCSconn Microsoft.EntityFrameworkCore.SqlSer
 
 also run the following to update the project if there was any database DDL operations;
 Scaffold-DbContext -Connection Name=BCSconn Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -F
+
+--specific table and db context 
+Scaffold-DbContext -connection name=TMSconn Microsoft.EntityFrameworkCore.SqlServer -OutputDir Repo/Models -table User,Club  -context TMSDbContext -contextDir Repo -DataAnnotations -F 
